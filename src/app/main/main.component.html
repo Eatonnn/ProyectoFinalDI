@@ -1,0 +1,304 @@
+<div class="hero-container">
+  <div class="hero-overlay">
+    <div class="hero-content text-center">
+      <h1 class="display-4 fw-bold text-white">Contempla a tus Artistas Favoritos</h1>
+      <p class="lead text-white">Compra tus entradas ahora y vive experiencias inolvidables.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Carrusel: Artistas del momento -->
+<section class="carousel-section py-5">
+  <div class="container">
+    <h2 class="text-center text-white mb-5">Artistas del momento</h2>
+    <div class="carousel-container">
+      <!-- Flecha izquierda -->
+      <button class="carousel-arrow prev" (click)="scrollCarousel('left', 'trending')">❮</button>
+
+      <!-- Contenedor de tarjetas -->
+      <div class="card-carousel" #trendingCarousel>
+        <!-- Coldplay -->
+        <a routerLink="/artist/1" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">15 Mar</div>
+            <div class="card" style="background-image: url('https://i.pinimg.com/236x/50/8b/fc/508bfcc325b350cd862d79266238d69a.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Coldplay</span>
+                <p class="location">Madrid</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Bad Bunny -->
+        <a routerLink="/artist/2" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">20 Mar</div>
+            <div class="card" style="background-image: url('https://hollywoodlife.com/wp-content/uploads/2021/08/bad-bunny-performance-vmas-ss-vertical.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Bad Bunny</span>
+                <p class="location">Barcelona</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- The Weeknd -->
+        <a routerLink="/artist/3" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">25 Mar</div>
+            <div class="card" style="background-image: url('https://hips.hearstapps.com/hmg-prod/images/the-weeknd-super-bowl-2021-mu-sica-1612805053.jpg'); background-size: cover;">
+              <div class="content">
+                <span>The Weeknd</span>
+                <p class="location">Valencia</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Taylor Swift -->
+        <a routerLink="/artist/4" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">05 Abr</div>
+            <div class="card" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f7/Taylor_Swift_Eras_Tour_-_Arlington%2C_TX_-_Midnights_act_%28cropped%29.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Taylor Swift</span>
+                <p class="location">Madrid</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Duki -->
+        <a routerLink="/trap/duki" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">12 Abr</div>
+            <div class="card" style="background-image: url('https://www.lanacion.com.ar/resizer/v2/duki-colmo-el-estadio-santiago-bernabeu-y-brindo-SLBCADNNEVBB7C4NDKPZ4FVEIM.JPG?auth=3e1e5b30b4e12709df290285064d0766ee9507e5f5208b80578b2937df2408ef&width=420&height=630&quality=70&smart=true'); background-size: cover;">
+              <div class="content">
+                <span>Duki</span>
+                <p class="location">Valencia</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- YSY A -->
+        <a routerLink="/artist/6" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">18 Abr</div>
+            <div class="card" style="background-image: url('https://finde.gba.gob.ar/sites/default/files/2022-09/YSYA.jpg'); background-size: cover;">
+              <div class="content">
+                <span>YSY A</span>
+                <p class="location">Madrid</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Bhavi -->
+        <a routerLink="/artist/7" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">22 Abr</div>
+            <div class="card" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Ca9NJIoOk7pGytXTQ2welghdv1M0h-P21A&s'); background-size: cover;">
+              <div class="content">
+                <span>Bhavi</span>
+                <p class="location">Barcelona</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Khea -->
+        <a routerLink="/artist/8" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">28 Abr</div>
+            <div class="card" style="background-image: url('https://i.pinimg.com/736x/52/d6/aa/52d6aaa4c4f9bbfeec7de3acd3d17200.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Khea</span>
+                <p class="location">Valencia</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Trueno -->
+        <a routerLink="/artist/9" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">01 May</div>
+            <div class="card" style="background-image: url('https://i.pinimg.com/736x/7b/11/ff/7b11ff0a406ce6047f0d360b4dba9241.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Trueno</span>
+                <p class="location">Madrid</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- BTS -->
+      <a routerLink="/artist/10" class="card-link">
+        <div class="card-wrapper">
+          <div class="date-banner">10 Abr</div>
+          <div class="card" style="background-image: url('https://i.pinimg.com/736x/3c/ab/9e/3cab9e5910e2a4e112426ed0799070c7.jpg'); background-size: cover;">
+            <div class="content">
+              <span>BTS</span>
+              <p class="location">Barcelona</p>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+
+      
+
+      <!-- Flecha derecha -->
+      <button class="carousel-arrow next" (click)="scrollCarousel('right', 'trending')">❯</button>
+    </div>
+  </div>
+</section>
+
+<!-- Carrusel: Artistas recomendados -->
+<section class="carousel-section py-5">
+  <div class="container">
+    <h2 class="text-center text-white mb-5">Artistas recomendados</h2>
+    <div class="carousel-container">
+      <!-- Flecha izquierda -->
+      <button class="carousel-arrow prev" (click)="scrollCarousel('left', 'recommended')">❮</button>
+
+      <!-- Contenedor de tarjetas -->
+      <div class="card-carousel" #recommendedCarousel>
+        <!-- Ariana Grande -->
+        <a routerLink="/artist/11" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">05 May</div>
+            <div class="card" style="background-image: url('https://i.pinimg.com/736x/44/42/17/4442175a9d4f1a77d11ba1f071a5b1d5.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Ariana Grande</span>
+                <p class="location">Barcelona</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Drake -->
+        <a routerLink="/artist/12" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">10 May</div>
+            <div class="card" style="background-image: url('https://images.megahits.pt/drake-21-savage18260f2e_vertical.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Drake</span>
+                <p class="location">Valencia</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Billie Eilish -->
+        <a routerLink="/artist/13" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">15 May</div>
+            <div class="card" style="background-image: url('https://i.pinimg.com/736x/dc/a9/08/dca908662a73247ca84ce1cece90f96d.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Billie Eilish</span>
+                <p class="location">Madrid</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Ed Sheeran -->
+        <a routerLink="/artist/14" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">20 May</div>
+            <div class="card" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d7/Ed_Sheeran_%288508821340%29.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Ed Sheeran</span>
+                <p class="location">Barcelona</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Rosalía -->
+        <a routerLink="/artist/15" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">25 May</div>
+            <div class="card" style="background-image: url('https://media.vogue.es/photos/62cad8c5d910c51da7e4a928/2:3/w_2560%2Cc_limit/IMG_9810.JPG'); background-size: cover;">
+              <div class="content">
+                <span>Rosalía</span>
+                <p class="location">Valencia</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Justin Bieber -->
+        <a routerLink="/artist/16" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">30 May</div>
+            <div class="card" style="background-image: url('https://i.pinimg.com/736x/22/69/f8/2269f8c2c89def850125630ff42c70cc.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Justin Bieber</span>
+                <p class="location">Madrid</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Post Malone -->
+        <a routerLink="/artist/17" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">05 Jun</div>
+            <div class="card" style="background-image: url('https://i.pinimg.com/736x/3e/30/69/3e30691eb59d000a2076f6d45f59f1bf.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Post Malone</span>
+                <p class="location">Valencia</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Doja Cat -->
+        <a routerLink="/artist/18" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">10 Jun</div>
+            <div class="card" style="background-image: url('https://i.pinimg.com/736x/69/fb/f9/69fbf9667f031c44bb2193cf8bc52396.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Doja Cat</span>
+                <p class="location">Valencia</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Maluma -->
+        <a routerLink="/artist/19" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">15 Jun</div>
+            <div class="card" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Maluma_-_Espa%C3%A7o_das_Am%C3%A9ricas_%2837591053894%29.jpg/640px-Maluma_-_Espa%C3%A7o_das_Am%C3%A9ricas_%2837591053894%29.jpg'); background-size: cover;">
+              <div class="content">
+                <span>Maluma</span>
+                <p class="location">Madrid</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Karol G -->
+        <a routerLink="/artist/20" class="card-link">
+          <div class="card-wrapper">
+            <div class="date-banner">20 Jun</div>
+            <div class="card" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwLDEWJl8SqmGjLLkKSUGfX7Vxq1DRvAZCdA&s'); background-size: cover;">
+              <div class="content">
+                <span>Karol G</span>
+                <p class="location">Barcelona</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Flecha derecha -->
+      <button class="carousel-arrow next" (click)="scrollCarousel('right', 'recommended')">❯</button>
+    </div>
+  </div>
+</section>

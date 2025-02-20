@@ -1,0 +1,37 @@
+<!-- header.component.html -->
+<header class="header">
+  <!-- Hamburguesa (siempre visible) -->
+  <div class="hamburger" (click)="toggleMenu()">
+    ☰
+  </div>
+  <!-- Menú lateral -->
+  <div class="menu-overlay" [class.open]="isMenuOpen">
+    <div class="menu-content">
+      <button class="close-btn" (click)="closeMenu()">×</button>
+      <div class="logo-menu">
+        <img src="https://1000logos.net/wp-content/uploads/2020/09/Guitar-Hero-logo.png" alt="Logo" />
+      </div>
+      <ul class="menu-list">
+        <li><a routerLink="/" (click)="closeMenu()">INICIO</a></li>
+        <li><a routerLink="/rock" (click)="closeMenu()">ROCK</a></li>
+        <li><a routerLink="/trap" (click)="closeMenu()">TRAP</a></li>
+        <li><a routerLink="/pop" (click)="closeMenu()">POP</a></li>
+        <li><a routerLink="/reggaeton" (click)="closeMenu()">REGGAETÓN</a></li>
+        <li><a routerLink="/metal" (click)="closeMenu()">METAL</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Logo Principal -->
+  <a class="logo-header" routerLink="/">
+    <img src="https://1000logos.net/wp-content/uploads/2020/09/Guitar-Hero-logo.png" alt="Logo" />
+  </a>
+  <!-- Contenido principal del Header -->
+  <div class="header-content">
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Buscar artista..." (input)="onSearch($event)" />
+      <button class="btn btn-search" (click)="onSearchSubmit()">Buscar</button>
+    </div>
+    <button class="btn btn-login">Iniciar Sesión</button>
+    <button class="btn btn-register">Registrarse</button>
+  </div>
+</header>
