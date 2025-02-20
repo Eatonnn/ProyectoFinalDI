@@ -116,7 +116,7 @@ export class ArtistDetailComponent {
       id: 'bad-bunny',
       name: 'Bad Bunny',
       image: 'https://images.axios.com/BF828CfZnAzC04IrBFKRtlfmWFQ=/0x255:6000x3630/1920x1080/2024/02/21/1708550511456.jpg',
-      backgroundImage: 'https://i0.wp.com/billypenn.com/wp-content/uploads/2022/03/badbunnyconcert.jpg?fit=2225%2C1483&ssl=1',
+      backgroundImage: 'https://www.rollingstone.com/wp-content/uploads/2024/06/bad-bunny-L1031888.jpg?w=1600&h=900&crop=1',
       description: 'Uno de los máximos exponentes del reggaetón actual.',
       location: 'Barcelona',
       dates: ['20 Jul', '22 Jul', '25 Jul'],
