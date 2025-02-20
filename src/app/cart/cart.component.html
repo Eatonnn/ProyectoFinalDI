@@ -1,1 +1,33 @@
-<p>cart works!</p>
+<!-- cart.component.html -->
+<!-- cart.component.html -->
+<div class="cart-container">
+  <!-- Si el carrito está vacío -->
+  <ng-container *ngIf="(cartItems$ | async) as cartItems">
+    <div *ngIf="!cartItems || cartItems.length === 0" class="empty-cart">
+      <p>No hay productos en el carrito.</p>
+    </div>
+
+    <!-- Si el carrito tiene elementos -->
+    <div *ngIf="cartItems && cartItems.length > 0">
+      <h2>Tu Carrito</h2>
+      <ul>
+        <li *ngFor="let item of cartItems">
+          <!-- Imagen del artista -->
+          <div class="artist-image-container">
+            <img [src]="item.artistImage" alt="{{ item.artistName }} Image" class="artist-image">
+          </div>
+          <!-- Detalles del producto -->
+          <div class="product-details">
+            <strong>{{ item.artistName }}</strong>
+            <p>Fecha: {{ item.date }}</p>
+            <p>Tipo: {{ item.ticketType }}</p>
+            <p>Precio: {{ item.price }} €</p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Botón para vaciar el carrito -->
+      <button (click)="clearCart()">Vaciar Carrito</button>
+    </div>
+  </ng-container>
+</div>

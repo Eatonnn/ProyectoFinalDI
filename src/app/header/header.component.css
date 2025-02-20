@@ -140,15 +140,7 @@
   color: #D29D0F;
 }
 
-/* Buscador */
-.search-bar {
-  padding: 8px;
-  border: none;
-  border-radius: 4px;
-  background-color: #bfbfbf;
-  color: #000000;
-  width: 200px;
-}
+
 
 /* Botones */
 .btn {
@@ -189,8 +181,27 @@
 
 /* Contenedor del buscador */
 .search-container {
+  position: relative; /* Necesario para posicionar el desplegable */
   display: flex;
   align-items: center;
+}
+
+/* Campo de búsqueda */
+.search-bar {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #bfbfbf;
+  color: #000000;
+  width: 200px;
+  font-size: 16px;
+  transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+  width: 250px; /* Aumenta el ancho cuando el usuario hace clic */
+  background-color: #ffffff;
+  outline: none;
 }
 
 /* Botón de búsqueda */
@@ -208,6 +219,73 @@
 
 .btn-search:hover {
   background-color: #b30606;
+}
+
+/* Desplegable de sugerencias */
+.suggestions-dropdown {
+  position: absolute;
+  top: 100%; /* Debajo del campo de búsqueda */
+  left: 0;
+  width: 100%;
+  max-height: 300px; /* Altura máxima para evitar desbordamientos */
+  overflow-y: auto; /* Agrega scroll si hay muchas sugerencias */
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+  margin-top: 5px; /* Espaciado entre el campo de búsqueda y el desplegable */
+}
+
+.suggestions-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.suggestions-dropdown li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.suggestions-dropdown li:hover {
+  background-color: #f0f0f0; /* Cambia el fondo al pasar el mouse */
+}
+
+.suggestions-dropdown img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Imagen circular */
+  margin-right: 10px;
+}
+
+.suggestions-dropdown span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Ocultar el desplegable cuando no hay sugerencias */
+.suggestions-dropdown:empty {
+  display: none;
+}
+
+/* Responsive design para el buscador */
+@media (max-width: 768px) {
+  .search-bar {
+    width: 150px; /* Ancho reducido en móviles */
+  }
+
+  .search-bar:focus {
+    width: 200px; /* Aumenta el ancho cuando el usuario hace clic */
+  }
+
+  .suggestions-dropdown {
+    max-height: 200px; /* Altura máxima reducida en móviles */
+  }
 }
 
 /* Responsive design */

@@ -1,20 +1,53 @@
+// cart.service.ts
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+// Definición de la interfaz CartItem
+interface CartItem {
+  artistName: string;
+  date: string;
+  ticketType: string;
+  price: number;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cart: any[] = [];
+  private cartItems: CartItem[] = [];
+  private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
 
-  addToCart(item: any): void {
-    this.cart.push(item);
+  // Define cartItems$ como Observable<CartItem[]>
+  cartItems$: Observable<CartItem[]> = this.cartItemsSubject.asObservable();
+
+  constructor() {
+    // Cargar los elementos del carrito desde localStorage al iniciar
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    this.cartItems = storedCartItems;
+    this.cartItemsSubject.next(this.cartItems);
   }
 
-  getCart(): any[] {
-    return this.cart;
+  // Método para añadir un artículo al carrito
+  addItemToCart(item: CartItem): void {
+    this.cartItems.push(item);
+    this.cartItemsSubject.next([...this.cartItems]);
+    this.saveToLocalStorage();
   }
 
-  removeFromCart(index: number): void {
-    this.cart.splice(index, 1);
+  // Método para obtener los elementos del carrito
+  getCartItems(): CartItem[] {
+    return [...this.cartItems];
+  }
+
+  // Método para vaciar el carrito
+  clearCart(): void {
+    this.cartItems = [];
+    this.cartItemsSubject.next([]);
+    this.saveToLocalStorage();
+  }
+
+  // Método privado para guardar el estado del carrito en localStorage
+  private saveToLocalStorage(): void {
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
 }

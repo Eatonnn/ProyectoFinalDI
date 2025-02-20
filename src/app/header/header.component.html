@@ -28,10 +28,27 @@
   <!-- Contenido principal del Header -->
   <div class="header-content">
     <div class="search-container">
-      <input type="text" class="search-bar" placeholder="Buscar artista..." (input)="onSearch($event)" />
-      <button class="btn btn-search" (click)="onSearchSubmit()">Buscar</button>
+      <!-- Campo de búsqueda -->
+      <input
+        type="text"
+        class="search-bar"
+        placeholder="Buscar artista..."
+        [(ngModel)]="query"
+        (input)="onSearch()"
+        (blur)="hideSuggestions()"
+      />
+      <!-- Desplegable de sugerencias -->
+      <div class="suggestions-dropdown" *ngIf="showSuggestions && suggestions.length > 0">
+        <ul>
+          <li *ngFor="let artist of suggestions">
+            <a [routerLink]="['/', artist.genre, artist.id]">
+              <img [src]="artist.image" alt="{{ artist.name }}" width="40" />
+              <span>{{ artist.name }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <button class="btn btn-login">Iniciar Sesión</button>
-    <button class="btn btn-register">Registrarse</button>
+    <button routerLink="/cart" class="btn btn-register">Carrito</button>
   </div>
 </header>

@@ -1,38 +1,60 @@
-// header.component.ts
-import { Component } from '@angular/core';
-import { EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { ArtistService, Artist } from '../services/artist.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isMenuOpen = false; // Estado del menú lateral
   @Output() searchEvent = new EventEmitter<string>();
 
-  // Método para abrir/cerrar el menú lateral
+  isMenuOpen = false;
+  query: string = '';
+  suggestions: Artist[] = [];
+  showSuggestions: boolean = false;
+
+  constructor(private artistService: ArtistService) {}
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  // Método para cerrar el menú lateral
   closeMenu() {
     this.isMenuOpen = false;
   }
 
-  // Método para manejar la búsqueda
-  onSearch(event: Event) {
-    const query = (event.target as HTMLInputElement).value;
-    this.searchEvent.emit(query);
+  onSearch() {
+    if (this.query.trim()) {
+      this.suggestions = this.artistService.searchArtists(this.query);
+      this.showSuggestions = this.suggestions.length > 0;
+    } else {
+      this.suggestions = [];
+      this.showSuggestions = false;
+    }
   }
 
-  // Método para manejar la acción de "Buscar" al hacer clic en el botón
   onSearchSubmit() {
-    console.log('Buscar clickeado');
-    // Aquí puedes agregar lógica adicional si es necesario
+    if (this.query.trim()) {
+      this.searchEvent.emit(this.query);
+      this.showSuggestions = false;
+    }
+  }
+
+  hideSuggestions() {
+    setTimeout(() => {
+      this.showSuggestions = false;
+    }, 200); // Se oculta después de un corto tiempo para evitar que desaparezca instantáneamente
+  }
+
+  selectSuggestion(artist: Artist) {
+    this.query = artist.name;
+    this.searchEvent.emit(this.query);
+    this.showSuggestions = false;
   }
 }

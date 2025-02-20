@@ -1,0 +1,132 @@
+/* Estilo principal del contenedor del carrito */
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ocupa toda la pantalla */
+  background-color: #121212; /* Fondo oscuro */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Título del carrito */
+.cart-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #D39E10; /* Color dorado */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Mensaje cuando el carrito está vacío */
+.empty-cart {
+  font-size: 1.5rem;
+  color: #888;
+}
+
+.empty-cart p {
+  margin: 0;
+}
+
+/* Lista de productos en el carrito */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+li:hover {
+  transform: scale(1.02);
+}
+
+/* Contenedor de la imagen del artista */
+/* Contenedor de la imagen del artista */
+.artist-image-container {
+  margin-bottom: 20px;
+}
+
+.artist-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+  border-radius: 50%; /* Forma circular */
+  border: 3px solid #D39E10; /* Borde dorado */
+}
+
+
+
+/* Detalles del producto */
+.product-details {
+  text-align: center;
+}
+
+.product-details strong {
+  font-size: 1.5rem;
+  color: #D39E10;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.product-details p {
+  font-size: 1rem;
+  color: #ccc;
+  margin: 5px 0;
+}
+
+/* Botón "Vaciar Carrito" */
+button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  background-color: #D39E10;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #b38c0f;
+  transform: scale(1.05);
+}
+
+button:focus-visible {
+  outline: 2px solid white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-container h2 {
+    font-size: 2rem;
+  }
+
+  .artist-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .product-details strong {
+    font-size: 1.2rem;
+  }
+
+  .product-details p {
+    font-size: 0.9rem;
+  }
+}

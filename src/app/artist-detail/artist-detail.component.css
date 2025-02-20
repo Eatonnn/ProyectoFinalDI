@@ -1,103 +1,216 @@
-/* Elimina márgenes y ajusta el body */
-html, body {
+  /* Estilos generales */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
 
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-}
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
 
-/* Contenedor que ocupa toda la pantalla con imagen de fondo */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  min-width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-
-
-/* Tarjeta centrada */
-.card {
-
-  width: 50%;
-  background-color: rgba(18, 18, 18, 0.8);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 20px;
-  color: white;
-
-}
-
-/* Estilo de la imagen del artista */
-.artist-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-/* Estilo del nombre del artista */
-.artist-name {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-/* Estilo de la descripción */
-.artist-description {
-  font-size: 1rem;
-  text-align: justify;
-  margin-bottom: 20px;
-  line-height: 1.5;
-  max-height: 9rem; /* Limita a 6 líneas */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es largo */
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-}
-
-/* Estilo del botón */
-.buy-ticket-button {
-  background-color: #D39E10;
-  color: black;
-  font-weight: bold;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 1rem;
-  transition: background-color 0.3s ease-in-out; /* Transición suave */
-}
-
-.buy-ticket-button:hover {
-  background-color: #b38c0f;
-}
-
-.buy-ticket-button:focus-visible {
-  outline: 2px solid #ffffff; /* Mantiene accesibilidad para navegación con teclado */
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
   .card {
-    width: 80%;
+    width: 50%;
+    background-color: rgba(18, 18, 18, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 20px;
+    color: white;
+  }
+
+  .artist-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
   }
 
   .artist-name {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    margin-bottom: 10px;
   }
 
   .artist-description {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    text-align: justify;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    max-height: 9rem; /* Limita a 6 líneas */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es largo */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   }
-}
+
+  .buy-ticket-button {
+    background-color: #D39E10;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out; /* Transición suave */
+  }
+
+  .buy-ticket-button:hover {
+    background-color: #b38c0f;
+  }
+
+  .buy-ticket-button:focus-visible {
+    outline: 2px solid #ffffff; /* Mantiene accesibilidad para navegación con teclado */
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .card {
+      width: 80%;
+    }
+    .artist-name {
+      font-size: 1.5rem;
+    }
+    .artist-description {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal-content {
+    background-color: rgba(18, 18, 18, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    color: white;
+    animation: slideDown 0.5s;
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .close:hover {
+    color: #D39E10;
+  }
+
+  .date-selection button,
+  .ticket-selection button {
+    background-color: #D39E10;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .date-selection button:hover,
+  .ticket-selection button:hover {
+    background-color: #b38c0f;
+  }
+
+  .date-selection p,
+  .ticket-selection p {
+    margin-top: 5px;
+    font-size: 1rem;
+  }
+
+  .resumen {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #D39E10;
+  }
+
+  .resumen h4 {
+    margin-bottom: 10px;
+  }
+
+  .resumen p {
+    margin: 5px 0;
+  }
+
+  /* Ticket Selection */
+  .ticket-selection {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+
+  .ticket-type {
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .ticket-type:hover {
+    transform: scale(1.05);
+  }
+
+  .pista-general {
+    background-color: green;
+  }
+
+  .pista-vip {
+    background-color: orange;
+  }
+
+  .pista-platinum {
+    background-color: red;
+  }
+
+  .ticket-type h4 {
+    color: white;
+    margin: 0;
+  }

@@ -1,8 +1,49 @@
+<!-- artist-detail.component.html -->
 <div class="container" [style.background-image]="'url(' + currentArtist?.backgroundImage + ')'">
   <div class="card">
     <img [src]="currentArtist?.image" alt="Artist Image" class="artist-image">
     <h1 class="artist-name">{{ currentArtist?.name }}</h1>
     <p class="artist-description">{{ currentArtist?.description }}</p>
-    <button routerLink="artistas" class="buy-ticket-button">Comprar entrada</button>
+    <button (click)="openModal()" class="buy-ticket-button">Abonos disponibles</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span (click)="closeModal()" class="close">&times;</span>
+    <h2>Selecciona una Fecha</h2>
+    <div class="date-selection">
+      <!-- Mostrar solo las fechas disponibles para el artista actual -->
+      <button *ngFor="let date of currentArtist?.dates" (click)="selectDate(date)">
+        {{ date }}
+      </button>
+    </div>
+    <div *ngIf="selectedDate">
+      <h3>{{ selectedDate }}</h3>
+      <div class="ticket-selection">
+        <div>
+          <button (click)="selectTicketType('Pista General')">Pista General</button>
+          <p>Precio: {{ ticketPrice['Pista General'] }} €</p>
+        </div>
+        <div>
+          <button (click)="selectTicketType('Pista VIP')">Pista VIP</button>
+          <p>Precio: {{ ticketPrice['Pista VIP'] }} €</p>
+        </div>
+        <div>
+          <button (click)="selectTicketType('Pista Platinum')">Pista Platinum</button>
+          <p>Precio: {{ ticketPrice['Pista Platinum'] }} €</p>
+        </div>
+      </div>
+      <!-- Resumen -->
+      <div *ngIf="selectedTicketType">
+        <h4>Resumen:</h4>
+        <p>Artista: {{ currentArtist?.name }}</p>
+        <p>Fecha: {{ selectedDate }}</p>
+        <p>Tipo de Entrada: {{ selectedTicketType }}</p>
+        <p>Precio Total: {{ ticketPrice[selectedTicketType] }} €</p>
+        <button (click)="addToCart()">Agregar al Carrito</button>
+      </div>
+    </div>
   </div>
 </div>
