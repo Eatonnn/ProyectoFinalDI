@@ -4,6 +4,18 @@
     <img [src]="currentArtist?.image" alt="Artist Image" class="artist-image">
     <h1 class="artist-name">{{ currentArtist?.name }}</h1>
     <p class="artist-description">{{ currentArtist?.description }}</p>
+    <div class="dates-container">
+      <h3>Fechas Disponibles:</h3>
+      <ul class="dates-list">
+        <li *ngFor="let date of currentArtist?.dates">{{ date }}</li>
+      </ul>
+    </div>
+    <div class="prices-container">
+      <h3>Precios Disponibles:</h3>
+      <ul class="prices-list">
+        <li *ngFor="let type of ticketTypes">{{ type }}: {{ ticketPrice[type] }} €</li>
+      </ul>
+    </div>
     <button (click)="openModal()" class="buy-ticket-button">Abonos disponibles</button>
   </div>
 </div>

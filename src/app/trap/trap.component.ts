@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-trap',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './trap.component.html',
   styleUrl: './trap.component.css'
 })

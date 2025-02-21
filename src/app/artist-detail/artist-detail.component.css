@@ -25,9 +25,10 @@
   .card {
     width: 50%;
     background-color: rgba(18, 18, 18, 0.8);
-    border-radius: 10px;
+    border: 1px solid #D39E10; /* Bordes rectos */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
+    margin: 100px 0;
     padding: 20px;
     color: white;
   }
@@ -35,7 +36,6 @@
   .artist-image {
     width: 100%;
     height: auto;
-    border-radius: 10px;
     margin-bottom: 15px;
   }
 
@@ -49,10 +49,33 @@
     text-align: justify;
     margin-bottom: 20px;
     line-height: 1.5;
-    max-height: 9rem; /* Limita a 6 líneas */
+    max-height: 75px; /* Limita a 5 líneas */
     overflow: hidden;
-    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es largo */
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
+  
+  .dates-container, .prices-container {
+    margin: 15px 0;
+  }
+  
+  .dates-container h3, .prices-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .dates-list, .prices-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dates-list li, .prices-list li {
+    font-size: 1rem;
+    margin: 5px 0;
   }
 
   .buy-ticket-button {
@@ -61,13 +84,12 @@
     font-weight: bold;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
     width: 100%;
     font-size: 1rem;
-    transition: background-color 0.3s ease-in-out; /* Transición suave */
+    transition: background-color 0.3s ease-in-out;
   }
-
+  
   .buy-ticket-button:hover {
     background-color: #b38c0f;
   }

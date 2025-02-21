@@ -27,6 +27,7 @@ export class ArtistDetailComponent {
   artistId!: string;
   genre!: string;
   currentArtist?: Artist;
+  ticketTypes: TicketType[] = ['Pista General', 'Pista VIP', 'Pista Platinum'];
   allArtists: Artist[] = [
     // POP
     {
@@ -228,7 +229,7 @@ export class ArtistDetailComponent {
       image: 'https://i.ytimg.com/vi/mul3XIfqB9Y/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCp_YOAKbniLeEPWz4EkzA1RRR8Aw',
       backgroundImage: 'https://cloudfront-us-east-1.images.arcpublishing.com/artear/UW6HE6FQENHBVLNR2YBW6WZR2Q.jpg',
       description: 'Artista argentino que ha logrado gran éxito en el mundo del trap.',
-      location: 'Málaga',
+      location: 'Sevilla',
       dates: ['20 Oct', '22 Oct', '25 Oct'],
     },
     {
@@ -237,7 +238,7 @@ export class ArtistDetailComponent {
       image: 'https://cdn.wegow.com/media/artists/khea/khea-1535010192.78.jpeg',
       backgroundImage: 'https://czcomunicacion.com/images/CZ/Contenidos/Noticias/KHEA/KHEA.LUNAPARK-330.jpg',
       description: 'Artista argentino que mezcla trap y reggaeton en sus canciones.',
-      location: 'Bilbao',
+      location: 'Málaga',
       dates: ['28 Oct', '30 Oct', '2 Nov'],
     },
     {
@@ -246,7 +247,7 @@ export class ArtistDetailComponent {
       image: 'https://www.clarin.com/2022/06/15/53C55nXgz_2000x1500__1.jpg',
       backgroundImage: 'https://i0.wp.com/expectador.cl/wp-content/uploads/2023/12/2-13.jpg?resize=1020%2C600&ssl=1',
       description: 'Artista trapero con gran influencia en España.',
-      location: 'Zaragoza',
+      location: 'Bilbao',
       dates: ['5 Nov', '7 Nov', '10 Nov'],
     },
     {
@@ -261,7 +262,7 @@ export class ArtistDetailComponent {
     {
       id: 'quevedo',
       name: 'Quevedo',
-      image: 'https://s1.ppllstatics.com/lasprovincias/www/multimedia/2024/06/30/quevedo-bigsound%20(1).jpg',
+      image: 'https://www.diariodesevilla.es/2023/09/02/galerias_graficas/Concierto-Quevedo_1826228443_191766723_667x375.jpg',
       backgroundImage: 'https://www.hola.com/horizon/original_aspect_ratio/43f36620e4ec-whatsapp-image-2025-02-20-at-003233.jpg',
       description: 'Artista español con gran éxito en el trap nacional.',
       location: 'Madrid',

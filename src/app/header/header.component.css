@@ -132,7 +132,7 @@
   font-size: 90px;
   font-weight: 800;
   display: inline-block;
-  transition: transform 1s ease-in-out;
+  transition: transform 0.7s ease-in-out;
 }
 
 .menu-list a:hover {

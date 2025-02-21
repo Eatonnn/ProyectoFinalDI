@@ -2,13 +2,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-// Definición de la interfaz CartItem
-interface CartItem {
+
+export interface CartItem {
   artistName: string;
   date: string;
   ticketType: string;
   price: number;
 }
+
 
 @Injectable({
   providedIn: 'root',
@@ -49,5 +50,11 @@ export class CartService {
   // Método privado para guardar el estado del carrito en localStorage
   private saveToLocalStorage(): void {
     localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+  }
+
+  removeItemFromCart(itemToRemove: CartItem): void {
+    this.cartItems = this.cartItems.filter(item => item !== itemToRemove);
+    this.cartItemsSubject.next([...this.cartItems]);
+    this.saveToLocalStorage();
   }
 }
